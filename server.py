@@ -30,5 +30,5 @@ if __name__ == "__main__":
         initialize_database()
         mcp.run()
     except Exception as exc:
-        print(f"Something Error in mcp server or tools: {exc}")
+        print(f"Something Error in mcp server or in tools: {exc}")
         raise
