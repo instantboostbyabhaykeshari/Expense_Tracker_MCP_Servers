@@ -1,4 +1,4 @@
-# Expense Tracker MCP
+# Expense Tracker MCP Server
 
 An **MCP (Model Context Protocol) server** that allows AI assistants such as Claude Desktop to manage expenses using natural language.
 
