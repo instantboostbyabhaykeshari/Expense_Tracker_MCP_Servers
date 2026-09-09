@@ -1,5 +1,5 @@
 import os
-from database import get_connection
+from database import get_connection, initialize_database
 
 
 def test_connection():
@@ -18,6 +18,7 @@ def test_connection():
 if __name__ == "__main__":
     try:
         test_connection()
+        initialize_database()
     except Exception as exc:
         print(f"Database connection failed: {exc}")
         print("Check DB_HOST, DB_PORT, DB_NAME, DB_USER, and DB_PASSWORD in your environment or .env file.")

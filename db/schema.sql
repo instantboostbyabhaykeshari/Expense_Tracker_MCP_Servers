@@ -4,6 +4,6 @@ CREATE TABLE IF NOT EXISTS expenses (
     category VARCHAR(100) NOT NULL,
 	sub_category VARCHAR(100),
     description TEXT,
-    expense_date DATE DEFAULT CURRENT_DATE
+    expense_date DATE DEFAULT CURRENT_DATE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
