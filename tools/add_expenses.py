@@ -1,9 +1,8 @@
 from datetime import date
-from typing import Optional
 from database import get_connection
 
 
-def add_expenses(amount: float, category: str, sub_category: str, description: str, expense_date: Optional[date] = None):
+def add_expenses(amount: float, category: str, sub_category: str, description: str, expense_date: date) -> dict:
     conn = get_connection()
     
     try:
@@ -11,14 +10,21 @@ def add_expenses(amount: float, category: str, sub_category: str, description: s
             cursor.execute(
                 """ INSERT INTO expenses (amount, category, sub_category, description, expense_date)
                     VALUES (%s, %s, %s, %s, %s)
-                """
-                    
+                    RETURNING id
+                """,    
                 (amount, category, sub_category, description, expense_date)
             )
+            
+            expense_id = cursor.fetchone()[0]
                 
         conn.commit()
+        
+        return {
+            "success": True,
+            "id": expense_id,
+            "messages": "Expense added successfully!"
+        }
+        
     finally:
         conn.close()
-        
-    print("Your all expense added successfully!")
     
