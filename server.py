@@ -1,3 +1,4 @@
+import os
 from fastmcp import FastMCP
 from datetime import date
 
@@ -28,7 +29,13 @@ def delete_expense(expense_id: int) -> dict:
 def main() -> None:
     try:
         initialize_database()
-        mcp.run()
+        port = int(os.environ.get("PORT", 8000))
+
+        mcp.run(
+            transport="streamable-http",
+            host="0.0.0.0",
+            port=port
+        )
     except Exception as exc:
         print(f"Something Error in mcp server or in tools: {exc}")
         raise
