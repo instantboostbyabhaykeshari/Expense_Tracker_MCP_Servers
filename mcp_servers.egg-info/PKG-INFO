@@ -1,0 +1,55 @@
+Metadata-Version: 2.4
+Name: mcp-servers
+Version: 0.1.0
+Summary: Expense Tracker MCP Server
+Author-email: Abhay Keshari <instantboostbyabhaykeshari@gmail.com>
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi>=0.141.1
+Requires-Dist: fastmcp>=4.0.3
+Requires-Dist: psycopg[binary]>=3.3.5
+Requires-Dist: python-dotenv>=1.2.3
+
+# Expense Tracker MCP Server
+
+An **MCP (Model Context Protocol) server** that allows AI assistants such as Claude Desktop to manage expenses using natural language.
+
+The server provides tools to **add, view, and delete expenses**, with PostgreSQL handling persistent storage.
+
+## Features
+
+- Add expenses with amount, category, sub-category, description, and date
+- View all stored expenses
+- Delete expenses by ID
+- PostgreSQL database integration
+- Modular MCP tool architecture
+- Automatic database schema initialization
+- Claude Desktop integration
+
+## Tech Stack
+
+- **Python**
+- **FastMCP / MCP**
+- **PostgreSQL**
+- **Psycopg 3**
+- **uv**
+- **python-dotenv**
+- **Claude Desktop**
+
+## Project Structure
+
+```text
+MCP Servers/
+│
+├── db/
+│   └── schema.sql
+│
+├── tools/
+│   ├── add_expenses.py
+│   ├── delete_expenses.py
+│   └── get_all_expenses.py
+│
+├── .env
+├── database.py
+├── server.py
+└── README.md

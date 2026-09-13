@@ -1,7 +1,7 @@
 [project]
 name = "mcp-servers"
 version = "0.1.0"
-description = "Add your description here"
+description = "Expense Tracker MCP Server"
 readme = "README.md"
 authors = [
     { name = "Abhay Keshari", email = "instantboostbyabhaykeshari@gmail.com" }
@@ -15,8 +15,14 @@ dependencies = [
 ]
 
 [project.scripts]
-mcp-servers = "mcp_servers:main"
+mcp-servers = "server:main"
 
 [build-system]
-requires = ["uv_build>=0.12.10,<0.13.0"]
-build-backend = "uv_build"
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["server", "database"]
+
+[tool.setuptools.package-dir]
+"" = "."
