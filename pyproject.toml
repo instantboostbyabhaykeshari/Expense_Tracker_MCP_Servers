@@ -26,3 +26,6 @@ py-modules = ["server", "database"]
 
 [tool.setuptools.package-dir]
 "" = "."
+
+[tool.uv]
+package = false
